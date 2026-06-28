@@ -116,7 +116,7 @@ export function GalaxyScene() {
   return (
     <div className="absolute inset-0">
       <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
-        <color attach="background" args={["#020617"]} />
+        <color attach="background" args={["#02030a"]} />
 
         <ambientLight intensity={0.4} />
 

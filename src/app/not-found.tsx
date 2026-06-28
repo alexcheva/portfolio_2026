@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950 text-white">
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#02030a] text-white">
       <GalaxyScene />
       <div className="relative z-10 px-6 text-center">
         <p className="mb-3 text-4xl font-semibold uppercase tracking-[0.24em] text-orange-300">
