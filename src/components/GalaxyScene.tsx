@@ -1,5 +1,5 @@
 "use client";
-
+import { GlassMerkaba } from "@/components/GlassMerkaba";
 import { Stars } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
@@ -122,6 +122,7 @@ export function GalaxyScene() {
 
         <ParallaxRig>
           <NebulaBackdrop />
+          <GlassMerkaba />
           <Stars
             radius={200}
             depth={250}
