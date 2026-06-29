@@ -1,4 +1,8 @@
 import { Edges, Float, MeshTransmissionMaterial } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
+import { useRef } from "react";
+import type { Group } from "three";
+import { MathUtils } from "three";
 
 function QuartzFractures() {
   return (
@@ -51,9 +55,28 @@ function QuartzFractures() {
 }
 
 export function GlassMerkaba() {
+  const groupRef = useRef<Group>(null);
+  const { pointer } = useThree();
+
+  useFrame(() => {
+    if (!groupRef.current) return;
+
+    groupRef.current.rotation.x = MathUtils.lerp(
+      groupRef.current.rotation.x,
+      0.18 - pointer.y * 0.22,
+      0.06,
+    );
+
+    groupRef.current.rotation.y = MathUtils.lerp(
+      groupRef.current.rotation.y,
+      0.7 + pointer.x * 0.35,
+      0.06,
+    );
+  });
+
   return (
     <Float speed={1.2} rotationIntensity={0.35} floatIntensity={0.35}>
-      <group rotation={[0.18, 0.7, 0]} scale={1.45}>
+      <group ref={groupRef} rotation={[0.18, 0.7, 0]} scale={1.45}>
         {/* Upward tetrahedron */}
         <mesh rotation={[0, Math.PI / 4, 0]}>
           <tetrahedronGeometry args={[1.35, 0]} />

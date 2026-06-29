@@ -1,8 +1,8 @@
 "use client";
-import { GlassMerkaba } from "@/components/GlassMerkaba";
+
 import { Stars } from "@react-three/drei";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useEffect, useMemo, useRef } from "react";
 import type { Group } from "three";
 import { MathUtils, AdditiveBlending, Texture, CanvasTexture } from "three";
 
@@ -73,20 +73,33 @@ function createNebulaBackdropTexture() {
 
 function ParallaxRig({ children }: { children: React.ReactNode }) {
   const groupRef = useRef<Group>(null);
-  const { pointer } = useThree();
+  const pointerRef = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    function handlePointerMove(event: PointerEvent) {
+      pointerRef.current.x = (event.clientX / window.innerWidth) * 2 - 1;
+      pointerRef.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    }
+
+    window.addEventListener("pointermove", handlePointerMove);
+
+    return () => {
+      window.removeEventListener("pointermove", handlePointerMove);
+    };
+  }, []);
 
   useFrame(() => {
     if (!groupRef.current) return;
 
     groupRef.current.rotation.y = MathUtils.lerp(
       groupRef.current.rotation.y,
-      pointer.x * 0.8,
+      pointerRef.current.x * 0.18,
       0.04,
     );
 
     groupRef.current.rotation.x = MathUtils.lerp(
       groupRef.current.rotation.x,
-      -pointer.y * 0.5,
+      -pointerRef.current.y * 0.12,
       0.04,
     );
   });
@@ -114,7 +127,7 @@ function NebulaBackdrop() {
 
 export function GalaxyScene() {
   return (
-    <div className="absolute inset-0">
+    <div className="absolute inset-0 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
         <color attach="background" args={["#02030a"]} />
 
@@ -122,7 +135,6 @@ export function GalaxyScene() {
 
         <ParallaxRig>
           <NebulaBackdrop />
-          <GlassMerkaba />
           <Stars
             radius={200}
             depth={250}
@@ -134,6 +146,6 @@ export function GalaxyScene() {
           />
         </ParallaxRig>
       </Canvas>
-    </div >
+    </div>
   );
 }
