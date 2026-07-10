@@ -5,7 +5,11 @@ import { Canvas } from "@react-three/fiber";
 
 export function MerkabaScene() {
   return (
-    <Canvas camera={{ position: [0, 0, 5], fov: 42 }}>
+    <Canvas
+      className="h-full w-full"
+      orthographic
+      camera={{ position: [0, 0, 5], zoom: 98 }}
+    >
       <ambientLight intensity={0.35} />
       <directionalLight position={[4, 5, 6]} intensity={2.4} />
       <pointLight position={[-3, -2, 4]} intensity={1.4} color="#fb923c" />

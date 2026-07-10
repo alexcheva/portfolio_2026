@@ -1,8 +1,85 @@
 import { Edges, Float, MeshTransmissionMaterial } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import type { Group } from "three";
-import { MathUtils } from "three";
+import { BufferGeometry, Float32BufferAttribute, MathUtils } from "three";
+
+function createTetrahedronGeometry(inverted = false) {
+  const apexY = 1.18;
+  const baseY = apexY / 3;
+  const height = apexY + baseY;
+  const radius = height / Math.SQRT2;
+  const frontZ = radius / 2;
+  const rearZ = -radius;
+  const sideX = (Math.sqrt(3) / 2) * radius;
+
+  const apex = inverted ? [0, -apexY, 0] : [0, apexY, 0];
+  const base = inverted
+    ? [
+        [-sideX, baseY, -frontZ],
+        [sideX, baseY, -frontZ],
+        [0, baseY, radius],
+      ]
+    : [
+        [-sideX, -baseY, frontZ],
+        [sideX, -baseY, frontZ],
+        [0, -baseY, rearZ],
+      ];
+
+  const vertices = new Float32Array([
+    apex[0],
+    apex[1],
+    apex[2],
+    base[0][0],
+    base[0][1],
+    base[0][2],
+    base[1][0],
+    base[1][1],
+    base[1][2],
+    base[2][0],
+    base[2][1],
+    base[2][2],
+  ]);
+
+  const geometry = new BufferGeometry();
+  geometry.setAttribute("position", new Float32BufferAttribute(vertices, 3));
+  geometry.setIndex([0, 1, 2, 0, 2, 3, 0, 3, 1, 1, 3, 2]);
+  geometry.computeVertexNormals();
+
+  return geometry;
+}
+
+function CrystalTetrahedron({
+  inverted = false,
+  edgeColor,
+  opacity,
+}: {
+  inverted?: boolean;
+  edgeColor: string;
+  opacity: number;
+}) {
+  const geometry = useMemo(() => createTetrahedronGeometry(inverted), [inverted]);
+
+  return (
+    <mesh geometry={geometry}>
+      <MeshTransmissionMaterial
+        color="#ffffff"
+        transmission={1}
+        thickness={0.9}
+        roughness={0.018}
+        ior={2.35}
+        chromaticAberration={0.08}
+        anisotropicBlur={0.08}
+        distortion={0.12}
+        distortionScale={0.35}
+        temporalDistortion={0.08}
+        transparent
+        opacity={opacity}
+      />
+      <Edges color={edgeColor} scale={1.01} />
+    </mesh>
+  );
+}
 
 function QuartzFractures() {
   return (
@@ -63,59 +140,22 @@ export function GlassMerkaba() {
 
     groupRef.current.rotation.x = MathUtils.lerp(
       groupRef.current.rotation.x,
-      0.18 - pointer.y * 0.22,
+      0.04 - pointer.y * 0.18,
       0.06,
     );
 
     groupRef.current.rotation.y = MathUtils.lerp(
       groupRef.current.rotation.y,
-      0.7 + pointer.x * 0.35,
+      0.04 + pointer.x * 0.24,
       0.06,
     );
   });
 
   return (
-    <Float speed={1.2} rotationIntensity={0.35} floatIntensity={0.35}>
-      <group ref={groupRef} rotation={[0.18, 0.7, 0]} scale={1.45}>
-        {/* Upward tetrahedron */}
-        <mesh rotation={[0, Math.PI / 4, 0]}>
-          <tetrahedronGeometry args={[1.35, 0]} />
-          <MeshTransmissionMaterial
-            color="#ffffff"
-            transmission={1}
-            thickness={0.9}
-            roughness={0.02}
-            ior={2.35}
-            chromaticAberration={0.08}
-            anisotropicBlur={0.08}
-            distortion={0.12}
-            distortionScale={0.35}
-            temporalDistortion={0.08}
-            transparent
-            opacity={0.42}
-          />
-          <Edges color="#f8fafc" scale={1.01} />
-        </mesh>
-
-        {/* Downward tetrahedron */}
-        <mesh rotation={[Math.PI, Math.PI / 4, 0]}>
-          <tetrahedronGeometry args={[1.35, 0]} />
-          <meshPhysicalMaterial
-            color="#ffffff"
-            roughness={0.015}
-            metalness={0}
-            transmission={0.96}
-            thickness={1.2}
-            ior={2.45}
-            transparent
-            opacity={0.32}
-            clearcoat={1}
-            clearcoatRoughness={0.01}
-            attenuationColor="#dbeafe"
-            attenuationDistance={1.8}
-          />
-          <Edges color="#fb923c" scale={1.01} />
-        </mesh>
+    <Float speed={1.1} rotationIntensity={0.12} floatIntensity={0.3}>
+      <group ref={groupRef} rotation={[0.04, 0.04, 0]} scale={1.5}>
+        <CrystalTetrahedron edgeColor="#f8fafc" opacity={0.42} />
+        <CrystalTetrahedron inverted edgeColor="#fb923c" opacity={0.36} />
         <QuartzFractures />
       </group>
     </Float>

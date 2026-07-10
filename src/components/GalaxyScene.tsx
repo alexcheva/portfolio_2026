@@ -2,7 +2,7 @@
 
 import { Stars } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Group } from "three";
 import { MathUtils, AdditiveBlending, Texture, CanvasTexture } from "three";
 
@@ -93,13 +93,13 @@ function ParallaxRig({ children }: { children: React.ReactNode }) {
 
     groupRef.current.rotation.y = MathUtils.lerp(
       groupRef.current.rotation.y,
-      pointerRef.current.x * 0.18,
+      pointerRef.current.x * 0.32,
       0.04,
     );
 
     groupRef.current.rotation.x = MathUtils.lerp(
       groupRef.current.rotation.x,
-      -pointerRef.current.y * 0.12,
+      -pointerRef.current.y * 0.2,
       0.04,
     );
   });
@@ -126,26 +126,59 @@ function NebulaBackdrop() {
 }
 
 export function GalaxyScene() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const node = containerRef.current;
+
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { rootMargin: "240px" },
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="absolute inset-0 pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
-        <color attach="background" args={["#02030a"]} />
+    <div ref={containerRef} className="pointer-events-none absolute inset-0">
+      {isVisible ? (
+        <Canvas dpr={[1, 1.35]} camera={{ position: [0, 0, 6], fov: 45 }}>
+          <color attach="background" args={["#02030a"]} />
 
-        <ambientLight intensity={0.4} />
+          <ambientLight intensity={0.4} />
 
-        <ParallaxRig>
-          <NebulaBackdrop />
-          <Stars
-            radius={200}
-            depth={250}
-            count={2500}
-            factor={4}
-            saturation={0}
-            fade
-            speed={0.4}
-          />
-        </ParallaxRig>
-      </Canvas>
+          <ParallaxRig>
+            <NebulaBackdrop />
+            <Stars
+              radius={120}
+              depth={120}
+              count={3200}
+              factor={6.2}
+              saturation={0}
+              fade
+              speed={0.45}
+            />
+            <Stars
+              radius={45}
+              depth={40}
+              count={520}
+              factor={7.5}
+              saturation={0}
+              fade
+              speed={0.75}
+            />
+          </ParallaxRig>
+        </Canvas>
+      ) : null}
     </div>
   );
 }
