@@ -10,8 +10,6 @@ import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TechnologiesSection from "@/components/TechnologiesSection";
 
-
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#02030a] text-slate-100">
@@ -76,9 +74,7 @@ export default function Home() {
       </section>
       <AboutMeSection />
       <TechnologiesSection />
-
       <ExperienceSection />
-
       <ProjectsSection />
       <EducationSection />
       <ContactSection />
