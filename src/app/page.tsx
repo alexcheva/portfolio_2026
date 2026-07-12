@@ -2,13 +2,13 @@ import { GalaxyScene } from "@/components/effects/GalaxyScene";
 import { MerkabaScene } from "@/components/effects/MerkabaScene";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
-import NavHeader from "@/components/NavHeader";
+import Header from "@/components/Header";
 import AboutMeSection from "@/components/AboutMeSection";
 import ContactSection from "@/components/ContactSection";
 import EducationSection from "@/components/EducationSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import TechnologiesSection from "@/components/TechnologiesSection";
+// import TechnologiesSection from "@/components/TechnologiesSection";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-b from-transparent to-[#02030a]" />
 
         <div className="relative z-10">
-          <NavHeader />
+          <Header />
           <div className="relative overflow-hidden">
             <GalaxyScene />
 
@@ -73,7 +73,7 @@ export default function Home() {
         </div>
       </section>
       <AboutMeSection />
-      <TechnologiesSection />
+      {/* <TechnologiesSection /> */}
       <ExperienceSection />
       <ProjectsSection />
       <EducationSection />
