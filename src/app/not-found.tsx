@@ -1,4 +1,4 @@
-import { GalaxyScene } from "@/components/GalaxyScene";
+import { GalaxyScene } from "@/components/effects/GalaxyScene";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { GlassMerkaba } from "@/components/GlassMerkaba";
+import { GlassMerkaba } from "@/components/effects/GlassMerkaba";
 import { Canvas } from "@react-three/fiber";
 
 export function MerkabaScene() {
