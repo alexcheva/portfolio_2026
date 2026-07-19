@@ -1,5 +1,6 @@
 import { AboutImageSlots } from "@/components/AboutImageSlots";
 import NavHeader from "@/components/Header";
+import RgbParallaxImage from "@/components/RgbParallaxImage";
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#02030a] text-slate-100">
@@ -12,8 +13,19 @@ export default function AboutPage() {
           </p>
 
           <h1 className="max-w-3xl text-5xl font-semibold tracking-tight text-white md:text-7xl">
-            Hi, I&apos;m Alex.
+            Hi, I&apos;m Alex.{" "}
+            <span
+              aria-hidden="true"
+              className="inline-block origin-[70%_70%] animate-wave"
+            >
+              👋
+            </span>
           </h1>
+
+          <blockquote className="mt-12 border-l-2 border-orange-300 pl-6 text-2xl font-medium leading-10 text-white">
+            I believe the best products aren&apos;t just functional. They&apos;re
+            memorable.
+          </blockquote>
 
           <div className="mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-300">
             <p>
@@ -29,6 +41,8 @@ export default function AboutPage() {
               thoughtful. It loads quickly, works for everyone, communicates
               clearly, and pays attention to the small details.
             </p>
+
+
 
             <p>That&apos;s the kind of software I enjoy building.</p>
 
@@ -63,6 +77,11 @@ export default function AboutPage() {
 
         <aside aria-label="Image spaces for creative work">
           <AboutImageSlots />
+          <RgbParallaxImage
+            src="/profile/alexandra_lukinicheva.jpg"
+            alt="Alexandra Lukinicheva - Software Engineer"
+            priority
+          />
         </aside>
       </section>
     </main>

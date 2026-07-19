@@ -1,35 +1,15 @@
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { projectRows } from "@/data/projects";
 import Section from "./sections/Section";
-const projectRows = [
-  {
-    title: "Spiritual Peach",
-    status: "In progress",
-    description:
-      "AI-powered wellness web application built with modern frontend technologies.",
-    tags: ["AI", "Wellness", "Frontend"],
-  },
-  {
-    title: "Accessibility AI Proof of Concept",
-    status: "Prototype",
-    description:
-      "Explored AI-assisted accessibility validation workflows for product QA and modernization work.",
-    tags: ["Accessibility", "AI", "Automation"],
-  },
-  {
-    title: "Interactive Data Visualization",
-    status: "Experiments",
-    description:
-      "React, D3.js, Canvas, eCharts, and Mapbox GL experiments for rich analytical interfaces.",
-    tags: ["React", "D3.js", "Mapbox GL"],
-  },
-];
 
 export default function ProjectsSection() {
-  return (<Section eyebrow="Projects" title="Selected projects and experiments.">
+  return (<Section id="projects" eyebrow="Projects" background="creative">
     <div className="grid gap-4 md:grid-cols-3">
       {projectRows.map((project) => (
         <article
           key={project.title}
-          className="rounded-3xl border border-white/10 bg-white/[0.04] p-6"
+          className="flex flex-col rounded-3xl border border-white/10 bg-white/[0.04] p-6"
         >
           <p className="text-sm text-orange-300">{project.status}</p>
           <h3 className="mt-3 text-2xl font-semibold text-white">
@@ -48,6 +28,13 @@ export default function ProjectsSection() {
               </span>
             ))}
           </div>
+          <Link
+            href={`/projects/${project.slug}`}
+            className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-orange-300/40 bg-orange-300/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-300/20 focus:outline-none focus:ring-2 focus:ring-orange-300"
+          >
+            Learn more
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </article>
       ))}
     </div>

@@ -1,12 +1,16 @@
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import Section from "./sections/Section";
 
 const experienceRows = [
   {
     company: "Sony Interactive Entertainment",
+    slug: "sony",
     role: "Software Development Engineer in Test",
     period: "2025-Present",
+    tags: ["Accessibility", "Automation", "AI proototype"],
     summary:
-      "Improving accessibility and regression confidence across PlayStation user experiences during a major platform migration.",
+      "Improved accessibility and automation during a large-scale PlayStation platform migration.",
     highlights: [
       "Improved accessibility across 12+ PlayStation user experiences.",
       "Identified 8 customer-facing issues, including 3 high-priority accessibility defects with ADA implications.",
@@ -16,8 +20,10 @@ const experienceRows = [
   },
   {
     company: "LOCH Technologies",
+    slug: "loch",
     role: "Senior Frontend Software Engineer",
     period: "2023-2024",
+    tags: ["Interactive Dashboards", "Maps", "Data Visualization"],
     summary:
       "Built geospatial analytics interfaces and visualization-heavy product experiences.",
     highlights: [
@@ -29,8 +35,10 @@ const experienceRows = [
   },
   {
     company: "Upstart",
-    role: "Full StackSoftware Engineer",
+    slug: "upstart",
+    role: "Full Stack Software Engineer",
     period: "2021-2023",
+    tags: ["Performance", "Accessibility", "Growth Engineering"],
     summary:
       "Shipped performant, accessible marketing and product experiences with React and Next.js.",
     highlights: [
@@ -44,7 +52,11 @@ const experienceRows = [
 
 export default function ExperienceSection() {
   return (
-    <Section eyebrow="Professional Experience" title="Recent work across accessibility, visualization, and frontend systems.">
+    <Section
+      id="experience"
+      eyebrow="Professional Experience"
+      background="engineering"
+    >
       <div className="grid gap-5 lg:grid-cols-3">
         {experienceRows.map((experience) => (
           <article
@@ -58,22 +70,39 @@ export default function ExperienceSection() {
               {experience.company}
             </h3>
             <p className="mt-3 text-sm font-medium leading-6 text-slate-300">
-              {experience.role}
+              <strong>{experience.role}</strong>
             </p>
             <p className="mt-5 text-sm leading-7 text-slate-300">
               {experience.summary}
             </p>
-            <ul className="mt-6 space-y-3 text-sm leading-6 text-slate-300">
+            <div className="mt-6 flex flex-wrap gap-2">
+              {experience.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            {/* <ul className="mt-6 space-y-3 text-sm leading-6 text-slate-300">
               {experience.highlights.map((highlight) => (
                 <li key={highlight} className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-orange-300" />
                   <span>{highlight}</span>
                 </li>
               ))}
-            </ul>
+            </ul> */}
+            <Link
+              href={`/experiences/${experience.slug}`}
+              className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-orange-300/40 bg-orange-300/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-300/20 focus:outline-none focus:ring-2 focus:ring-orange-300"
+            >
+              Learn more
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </article>
         ))}
       </div>
     </Section>
   );
-};
+}

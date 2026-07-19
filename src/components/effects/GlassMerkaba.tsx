@@ -133,7 +133,16 @@ function QuartzFractures() {
 
 export function GlassMerkaba() {
   const groupRef = useRef<Group>(null);
-  const { pointer } = useThree();
+  const { pointer, size } = useThree();
+  const minCanvasSize = Math.min(size.width, size.height);
+  const merkabaScale =
+    minCanvasSize < 340
+      ? 0.98
+      : minCanvasSize < 420
+        ? 1.12
+        : minCanvasSize < 560
+          ? 1.28
+          : 1.5;
 
   useFrame(() => {
     if (!groupRef.current) return;
@@ -153,7 +162,7 @@ export function GlassMerkaba() {
 
   return (
     <Float speed={1.1} rotationIntensity={0.12} floatIntensity={0.3}>
-      <group ref={groupRef} rotation={[0.04, 0.04, 0]} scale={1.5}>
+      <group ref={groupRef} rotation={[0.04, 0.04, 0]} scale={merkabaScale}>
         <CrystalTetrahedron edgeColor="#f8fafc" opacity={0.42} />
         <CrystalTetrahedron inverted edgeColor="#fb923c" opacity={0.36} />
         <QuartzFractures />

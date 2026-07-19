@@ -5,24 +5,22 @@ const educationRows = [
   {
     school: "Techtonica",
     program: "Full Stack Software Engineering Apprenticeship",
-    period: "Software Engineering",
-    gpa: null,
+    period: "2020 - 2021",
     detail:
       "Intensive full-stack engineering program focused on production web development, collaboration, and practical software engineering foundations.",
   },
   {
     school: "Berkeley City College",
     program: "Associate of Arts in Mobile and Web Design",
-    period: "September 2014 - April 2018",
-    gpa: "4.0",
+    period: "2014 - 2018",
+
     detail:
       "Studied mobile and web design with a focus on visual communication, interactive experiences, and practical digital production.",
   },
   {
     school: "Saint Petersburg State University of Cinema and Television",
     program: "Bachelor of Arts in Interactive Multimedia",
-    period: "September 2008 - April 2010",
-    gpa: "3.92",
+    period: "2008 - 2010",
     detail:
       "Studied interactive multimedia, combining design, media, technology, and creative production foundations.",
   },
@@ -30,7 +28,7 @@ const educationRows = [
 
 export default function EducationSection() {
   return (
-    <Section eyebrow="Education" title="Education and continued learning.">
+    <Section eyebrow="Education" background="making">
       <div className="grid gap-4 md:grid-cols-3">
         {educationRows.map((education, index) => (
           <article
@@ -49,11 +47,6 @@ export default function EducationSection() {
             <p className="mt-3 text-sm text-slate-400">
               {education.period}
             </p>
-            {education.gpa ? (
-              <p className="mt-2 text-sm text-slate-300">
-                GPA: {education.gpa}
-              </p>
-            ) : null}
             <p className="mt-4 text-sm leading-6 text-slate-300">
               {education.detail}
             </p>

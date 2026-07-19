@@ -2,35 +2,48 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const navItems = [
+  {
+    label: "About",
+    href: "/about",
+    activePath: "/about",
+  },
+  {
+    label: "Projects",
+    href: "/#projects",
+  },
+  {
+    label: "Experience",
+    href: "/#experience",
+  },
+  {
+    label: "Contact",
+    href: "/#contact",
+  },
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-
-  const navItems = [
-    "Main",
-    "About",
-    "Projects",
-    "Experience",
-    // "Writing", 
-    "Contact"];
+  const pathname = usePathname();
 
   return (
     <nav aria-label="Main navigation" className="relative">
       <div className="flex items-center justify-end">
         <ul className="hidden gap-4 text-sm text-slate-300 md:flex">
           {navItems.map((item) => {
-            const href = `/${item.toLowerCase()}`;
-            const isCurrent = item === "Main";
+            const isCurrent = item.activePath === pathname;
 
             return (
-              <li key={item}>
+              <li key={item.label}>
                 <Link
-                  href={href}
+                  href={item.href}
                   aria-current={isCurrent ? "page" : undefined}
                   className={`transition hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-300 ${isCurrent ? "text-orange-300" : ""
                     }`}
                 >
-                  {item}
+                  {item.label}
                 </Link>
               </li>
             );
@@ -50,24 +63,24 @@ export default function Navbar() {
       {open && (
         <ul className="absolute z-40 right-0 mt-3 flex w-44 flex-col gap-3 rounded-md border border-white/10 bg-slate-950 p-4 text-sm text-slate-300 shadow-lg md:hidden">
           {navItems.map((item) => {
-            const href = `/${item.toLowerCase()}`;
-            const isCurrent = item === "Main";
+            const isCurrent = item.activePath === pathname;
 
             return (
-              <li key={item}>
+              <li key={item.label}>
                 <Link
-                  href={href}
+                  href={item.href}
                   aria-current={isCurrent ? "page" : undefined}
                   onClick={() => setOpen(false)}
                   className={`block transition hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-300 ${isCurrent ? "text-orange-300" : ""
                     }`}
                 >
-                  {item}
+                  {item.label}
                 </Link>
               </li>
             );
           })}
         </ul>
       )}
-    </nav>);
+    </nav>
+  );
 }
