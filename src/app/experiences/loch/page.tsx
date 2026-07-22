@@ -23,7 +23,11 @@ browser performance issues. I evaluated alternatives and replaced that visualiza
 Canvas-based implementation that handled continuous streaming data much more efficiently."
 */
 
+import AboutBackground from "@/components/AboutBackground";
+import AboutConnectSection from "@/components/AboutConnectSection";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 const sections = [
@@ -79,66 +83,81 @@ const interviewQuestions = [
 
 export default function LochExperiencePage() {
   return (
-    <main className="min-h-screen bg-[#02030a] text-slate-100">
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#02030a] text-slate-100">
+      <AboutBackground />
       <Header />
 
-      <section className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-24">
-        <Link
-          href="/#experience"
-          className="text-sm font-medium text-orange-300 transition hover:text-orange-200"
-        >
-          Back to experience
-        </Link>
+      <section className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1fr_0.72fr] lg:py-24">
+        <article>
+          <Link
+            href="/#experience"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-medium text-white backdrop-blur transition hover:border-orange-300/60 hover:bg-orange-300/10 focus:outline-none focus:ring-2 focus:ring-orange-300"
+          >
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            Back to experience
+          </Link>
 
-        <div className="mt-8 max-w-4xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.24em] text-orange-300">
-            LOCH Technologies
-          </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-white md:text-6xl">
-            Geospatial analytics, visualization architecture, and performance.
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-slate-300">
-            Senior Frontend Software Engineer, 2023-2024
-          </p>
-        </div>
+          <div className="mt-10 max-w-4xl">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.24em] text-orange-300">
+              LOCH Technologies
+            </p>
+            <h1 className="text-4xl font-semibold tracking-tight text-white md:text-6xl">
+              Geospatial analytics, visualization architecture, and performance.
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-slate-300">
+              Senior Frontend Software Engineer, 2023-2024
+            </p>
+          </div>
 
-        <div className="mt-12 grid gap-5">
-          {sections.map((section) => (
-            <article
-              key={section.title}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:p-8"
-            >
-              <h2 className="text-2xl font-semibold text-white">
-                {section.title}
-              </h2>
-              <p className="mt-4 text-base leading-8 text-slate-300">
-                {section.body}
-              </p>
-            </article>
-          ))}
-        </div>
+          <div className="mt-14 max-w-3xl space-y-12">
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="text-2xl font-semibold text-white">
+                  {section.title}
+                </h2>
+                <p className="mt-4 text-lg leading-8 text-slate-300">
+                  {section.body}
+                </p>
+              </section>
+            ))}
+          </div>
 
-        <section className="mt-12">
-          <h2 className="text-3xl font-semibold tracking-tight text-white">
-            Interview Q&A
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <section className="mt-16 max-w-3xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-white">
+              Interview Q&A
+            </h2>
+            <div className="mt-6 divide-y divide-white/10 border-y border-white/10">
             {interviewQuestions.map((item) => (
-              <article
-                key={item.question}
-                className="rounded-3xl border border-orange-300/20 bg-orange-300/10 p-6"
-              >
-                <h3 className="text-lg font-semibold text-white">
+              <article key={item.question} className="py-6">
+                <h3 className="text-lg font-semibold text-orange-200">
                   {item.question}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-300">
+                <p className="mt-3 text-base leading-8 text-slate-300">
                   {item.answer}
                 </p>
               </article>
             ))}
-          </div>
-        </section>
+            </div>
+          </section>
+        </article>
+
+        <aside aria-label="LOCH image spaces" className="space-y-5 lg:pt-24">
+          {["Mapbox interface", "Visualization architecture", "Canvas performance"].map((label) => (
+            <figure
+              key={label}
+              className="flex aspect-[4/3] items-end rounded-2xl border border-dashed border-orange-300/25 bg-[radial-gradient(circle_at_30%_20%,rgba(56,189,248,0.16),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01))] p-5"
+            >
+              <figcaption className="text-sm font-medium text-slate-300">
+                {label}
+              </figcaption>
+            </figure>
+          ))}
+        </aside>
       </section>
+      <div className="relative z-10">
+        <AboutConnectSection />
+        <Footer />
+      </div>
     </main>
   );
 }

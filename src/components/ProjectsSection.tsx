@@ -5,7 +5,7 @@ import Section from "./sections/Section";
 
 export default function ProjectsSection() {
   return (<Section id="projects" eyebrow="Projects" background="creative">
-    <div className="grid gap-4 md:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {projectRows.map((project) => (
         <article
           key={project.title}

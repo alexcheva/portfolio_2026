@@ -85,8 +85,8 @@ export default function RgbParallaxImage({
           aria-hidden="true"
           fill
           sizes="(min-width: 1024px) 420px, 100vw"
-          className="object-cover opacity-45 mix-blend-screen [filter:sepia(1)_saturate(7)_hue-rotate(310deg)]"
-          style={channelStyle(14, 6)}
+          className="object-cover opacity-[0.24] [filter:sepia(1)_saturate(9)_hue-rotate(310deg)_contrast(1.15)]"
+          style={channelStyle(18, 4)}
         />
         <Image
           src={src}
@@ -94,8 +94,8 @@ export default function RgbParallaxImage({
           aria-hidden="true"
           fill
           sizes="(min-width: 1024px) 420px, 100vw"
-          className="object-cover opacity-35 mix-blend-screen [filter:sepia(1)_saturate(8)_hue-rotate(90deg)]"
-          style={channelStyle(-10, 8)}
+          className="object-cover opacity-20 [filter:sepia(1)_saturate(10)_hue-rotate(90deg)_contrast(1.18)]"
+          style={channelStyle(-14, 5)}
         />
         <Image
           src={src}
@@ -103,12 +103,12 @@ export default function RgbParallaxImage({
           aria-hidden="true"
           fill
           sizes="(min-width: 1024px) 420px, 100vw"
-          className="object-cover opacity-45 mix-blend-screen [filter:sepia(1)_saturate(8)_hue-rotate(175deg)]"
-          style={channelStyle(-16, -7)}
+          className="object-cover opacity-[0.18] [filter:sepia(1)_saturate(9)_hue-rotate(175deg)_contrast(1.12)]"
+          style={channelStyle(-20, -4)}
         />
       </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,255,255,0.18),transparent_32%)] opacity-0 mix-blend-soft-light transition-opacity duration-200 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,255,255,0.06),transparent_26%)] opacity-0 mix-blend-overlay transition-opacity duration-200 group-hover:opacity-100" />
     </div>
   );
 }
