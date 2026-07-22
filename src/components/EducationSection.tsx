@@ -33,14 +33,14 @@ export default function EducationSection() {
   return (
     <Section eyebrow="Education" background="making">
       <div className="w-full rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-black/25 md:p-6">
-        <ol className="relative space-y-3 before:absolute before:bottom-9 before:left-10 before:top-9 before:w-px before:bg-gradient-to-b before:from-orange-300 before:via-sky-300 before:to-fuchsia-300">
+        <ol className="relative space-y-3 before:absolute before:bottom-8 before:left-[3.25rem] before:top-8 before:w-px before:bg-gradient-to-b before:from-orange-300 before:via-sky-300 before:to-fuchsia-300 sm:before:left-10">
           {educationRows.map((education, index) => (
             <li
               key={`${education.school}-${index}`}
               tabIndex={0}
-              className="group relative grid gap-4 rounded-xl p-3 transition hover:bg-white/[0.06] focus:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-orange-300/60 sm:grid-cols-[5.5rem_1fr]"
+              className="group relative flex items-start gap-4 rounded-xl p-3 transition hover:bg-white/[0.06] focus:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-orange-300/60"
             >
-              <div className="relative z-10 flex h-20 w-20 items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-white p-2 shadow-xl shadow-black/20">
+              <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-white p-2 shadow-xl shadow-black/20 sm:h-20 sm:w-20">
                 <Image
                   src={education.image}
                   alt={`${education.school} logo`}
