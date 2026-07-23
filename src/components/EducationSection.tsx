@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Section from "./sections/Section";
+import { assetPath } from "@/lib/assetPath";
 
 const educationRows = [
   {
@@ -42,7 +43,7 @@ export default function EducationSection() {
             >
               <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-white p-2 shadow-xl shadow-black/20 sm:h-20 sm:w-20">
                 <Image
-                  src={education.image}
+                  src={assetPath(education.image)}
                   alt={`${education.school} logo`}
                   width={80}
                   height={80}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { assetPath } from "@/lib/assetPath";
 
 export default function Header() {
   return (
@@ -8,7 +9,7 @@ export default function Header() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/brand/merkaba-logo-transparent.png"
+            src={assetPath("/brand/merkaba-logo-transparent.png")}
             alt=""
             width={40}
             height={40}

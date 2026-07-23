@@ -2,6 +2,7 @@ import { CalendarDays, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import BrandIcon from "@/components/BrandIcon";
+import { assetPath } from "@/lib/assetPath";
 // import Navbar from "@/components/Navbar";
 
 const footerLinks = [
@@ -55,7 +56,7 @@ export default function Footer() {
             ))}
           </nav>
           <Image
-            src="/brand/merkaba-logo-transparent.png"
+            src={assetPath("/brand/merkaba-logo-transparent.png")}
             alt=""
             width={40}
             height={40}

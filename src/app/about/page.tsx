@@ -4,6 +4,7 @@ import AboutConnectSection from "@/components/AboutConnectSection";
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/Header";
 import RgbParallaxImage from "@/components/RgbParallaxImage";
+import { assetPath } from "@/lib/assetPath";
 import { BookOpen, Code2, Layers3, Palette } from "lucide-react";
 
 const pathSteps = [
@@ -141,7 +142,7 @@ export default function AboutPage() {
         >
           {/* <AboutImageSlots /> */}
           <RgbParallaxImage
-            src="/profile/alexandra_lukinicheva.jpg"
+            src={assetPath("/profile/alexandra_lukinicheva.jpg")}
             alt="Alexandra Lukinicheva - Software Engineer"
             priority
           />

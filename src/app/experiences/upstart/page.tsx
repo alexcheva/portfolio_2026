@@ -12,6 +12,7 @@ import AboutBackground from "@/components/AboutBackground";
 import AboutConnectSection from "@/components/AboutConnectSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import NextExperienceSection from "@/components/NextExperienceSection";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -72,7 +73,7 @@ export default function UpstartExperiencePage() {
       <AboutBackground />
       <Header />
 
-      <section className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1fr_0.72fr] lg:py-24">
+      <section className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1fr_0.36fr] lg:py-24">
         <article>
           <Link
             href="/#experience"
@@ -125,18 +126,8 @@ export default function UpstartExperiencePage() {
             </div>
           </section>
         </article>
-
-        <aside aria-label="Upstart image spaces" className="space-y-5 lg:pt-24">
-          {["Landing page work", "Performance before/after", "A/B testing"].map((label) => (
-            <figure
-              key={label}
-              className="flex aspect-[4/3] items-end rounded-2xl border border-dashed border-orange-300/25 bg-[radial-gradient(circle_at_30%_20%,rgba(251,146,60,0.16),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01))] p-5"
-            >
-              <figcaption className="text-sm font-medium text-slate-300">
-                {label}
-              </figcaption>
-            </figure>
-          ))}
+        <aside aria-label="Related experience" className="lg:pt-24">
+          <NextExperienceSection currentSlug="upstart" />
         </aside>
       </section>
       <div className="relative z-10">

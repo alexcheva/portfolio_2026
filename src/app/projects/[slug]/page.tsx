@@ -2,6 +2,7 @@ import AboutBackground from "@/components/AboutBackground";
 import AboutConnectSection from "@/components/AboutConnectSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import NextProjectSection from "@/components/NextProjectSection";
 import { projectRows } from "@/data/projects";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -106,7 +107,10 @@ export default async function ProjectPage({
             </section>
           </div>
 
-          <aside aria-label={`${project.title} quick facts`} className="lg:pt-2">
+          <aside
+            aria-label={`${project.title} quick facts`}
+            className="space-y-5 lg:pt-2"
+          >
             <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
               <p className="text-sm font-medium uppercase tracking-[0.24em] text-orange-200">
                 Focus
@@ -122,6 +126,7 @@ export default async function ProjectPage({
                 ))}
               </div>
             </div>
+            <NextProjectSection currentSlug={project.slug} />
           </aside>
         </div>
       </section>

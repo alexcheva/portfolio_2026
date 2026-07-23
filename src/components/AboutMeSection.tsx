@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 // import Link from "next/link";
 import { BriefcaseBusiness, Code2, MapPin, Sparkles, Timer } from "lucide-react";
 
@@ -9,7 +10,7 @@ export default function AboutPage() {
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-4">
           <div className="relative aspect-square overflow-hidden rounded-2xl border border-dashed border-orange-300/30 bg-[radial-gradient(circle_at_40%_20%,rgba(251,146,60,0.22),transparent_32%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]">
             <Image
-              src="/profile/alexandra_lukinicheva.png"
+              src={assetPath("/profile/alexandra_lukinicheva.png")}
               alt="Alexandra Lukinicheva - Software Engineer"
               fill
               sizes="(min-width: 1024px) 360px, (min-width: 768px) 50vw, 100vw"
