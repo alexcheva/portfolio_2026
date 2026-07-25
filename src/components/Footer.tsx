@@ -55,14 +55,21 @@ export default function Footer() {
               </Link>
             ))}
           </nav>
-          <Image
-            src={assetPath("/brand/merkaba-logo-transparent.png")}
-            alt=""
-            width={40}
-            height={40}
-            className="h-10 w-10 rounded-xl"
-            priority
-          />
+          <Link
+            href="/"
+            aria-label="Back to home"
+            title="Back to home"
+            className="flex h-10 w-10 items-center justify-center rounded-xl transition hover:bg-orange-300/10 focus:outline-none focus:ring-2 focus:ring-orange-300"
+          >
+            <Image
+              src={assetPath("/brand/merkaba-logo-transparent.png")}
+              alt=""
+              width={40}
+              height={40}
+              className="h-10 w-10 rounded-xl"
+              priority
+            />
+          </Link>
         </div>
 
         {/* <Navbar /> */}

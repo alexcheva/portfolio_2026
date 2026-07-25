@@ -66,7 +66,7 @@ export default function EducationSection() {
                 <p className="mt-2 text-sm font-medium text-slate-200">
                   {education.program}
                 </p>
-                <p className="mt-0 max-h-0 overflow-hidden text-sm leading-6 text-slate-300 opacity-0 transition-all duration-300 group-hover:mt-4 group-hover:max-h-32 group-hover:opacity-100 group-focus:mt-4 group-focus:max-h-32 group-focus:opacity-100">
+                <p className="mt-0 max-h-0 overflow-hidden text-sm leading-6 text-slate-300 opacity-0 transition-all duration-300 group-hover:mt-4 group-hover:max-h-56 group-hover:opacity-100 group-focus:mt-4 group-focus:max-h-56 group-focus:opacity-100 sm:group-hover:max-h-40 sm:group-focus:max-h-40">
                   {education.detail}
                 </p>
               </div>
