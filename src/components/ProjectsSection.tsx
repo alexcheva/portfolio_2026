@@ -32,7 +32,7 @@ export default function ProjectsSection() {
             href={`/projects/${project.slug}`}
             className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-orange-300/40 bg-orange-300/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-300/20 focus:outline-none focus:ring-2 focus:ring-orange-300"
           >
-            Learn more
+            {project.ctaLabel}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </article>

@@ -1,6 +1,7 @@
 export const experienceRows = [
   {
     company: "Sony Interactive Entertainment",
+    ctaLabel: "View Sony experience",
     slug: "sony",
     role: "Software Development Engineer in Test",
     period: "2025-Present",
@@ -16,6 +17,7 @@ export const experienceRows = [
   },
   {
     company: "LOCH Technologies",
+    ctaLabel: "View LOCH experience",
     slug: "loch",
     role: "Senior Frontend Software Engineer",
     period: "2023-2024",
@@ -31,6 +33,7 @@ export const experienceRows = [
   },
   {
     company: "Upstart",
+    ctaLabel: "View Upstart experience",
     slug: "upstart",
     role: "Full Stack Software Engineer",
     period: "2021-2023",

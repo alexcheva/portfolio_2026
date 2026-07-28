@@ -2,6 +2,7 @@ export const projectRows = [
   {
     slug: "spiritual-peach",
     title: "Spiritual Peach",
+    ctaLabel: "View Spiritual Peach",
     status: "In progress",
     description:
       "AI-powered wellness platform exploring mindfulness, creativity, and intelligent user experiences.",
@@ -57,6 +58,7 @@ export const projectRows = [
   {
     slug: "accessibility-ai-proof-of-concept",
     title: "Accessibility AI Proof of Concept",
+    ctaLabel: "View Accessibility AI",
     status: "Prototype",
     description:
       "Exploring how AI can accelerate accessibility validation without replacing human judgment.",
@@ -117,6 +119,7 @@ export const projectRows = [
   {
     slug: "interactive-data-visualization",
     title: "Interactive Data Visualization",
+    ctaLabel: "View Data Visualization",
     status: "Experiments",
     description:
       "Modern techniques for building fast, interactive, and scalable analytical interfaces.",
@@ -180,6 +183,7 @@ export const projectRows = [
   {
     slug: "portfolio-2026",
     title: "Portfolio 2026",
+    ctaLabel: "View Portfolio 2026",
     status: "Live iteration",
     description:
       "A personal portfolio built as a polished product surface, not just a static resume.",

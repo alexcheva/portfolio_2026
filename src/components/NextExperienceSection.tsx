@@ -57,7 +57,7 @@ export default function NextExperienceSection({
           ))}
         </div>
         <span className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-orange-300/40 bg-orange-300/10 px-4 py-2 text-sm font-medium text-white transition group-hover:bg-orange-300/20">
-          Learn more
+          {nextExperience.ctaLabel}
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </span>
       </Link>
