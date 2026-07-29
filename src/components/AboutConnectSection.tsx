@@ -1,5 +1,6 @@
 import { FileText, Mail } from "lucide-react";
 import Link from "next/link";
+import { assetPath } from "@/lib/assetPath";
 
 const connectLinks = [
   {
@@ -37,18 +38,28 @@ export default function AboutConnectSection() {
           </div>
 
           <div className="flex flex-wrap gap-3 md:justify-end">
-            {connectLinks.map(({ label, href, icon: Icon, external }) => (
-              <Link
-                key={label}
-                href={href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noreferrer" : undefined}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-white transition hover:border-orange-300/50 hover:bg-orange-300/10 focus:outline-none focus:ring-2 focus:ring-orange-300"
-              >
-                <Icon className="h-4 w-4" aria-hidden="true" />
-                {label}
-              </Link>
-            ))}
+            {connectLinks.map(({ label, href, icon: Icon, external }) => {
+              const className =
+                "inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-white transition hover:border-orange-300/50 hover:bg-orange-300/10 focus:outline-none focus:ring-2 focus:ring-orange-300";
+
+              return external ? (
+                <a
+                  key={label}
+                  href={assetPath(href)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={className}
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  {label}
+                </a>
+              ) : (
+                <Link key={label} href={href} className={className}>
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  {label}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -29,7 +29,7 @@ const contactLinks = [
   {
     label: "Email",
     detail: "Send me a message",
-    href: "mailto:a.lukinicheva@gamil.com",
+    href: "mailto:a.lukinicheva@gmail.com",
     icon: Mail,
   },
 ];

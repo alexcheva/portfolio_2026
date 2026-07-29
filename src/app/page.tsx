@@ -1,5 +1,3 @@
-import { GalaxyScene } from "@/components/effects/GalaxyScene";
-import { MerkabaScene } from "@/components/effects/MerkabaScene";
 import { FileText, Mail } from "lucide-react";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -9,6 +7,9 @@ import EducationSection from "@/components/EducationSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import Footer from "@/components/Footer";
+import { GalaxyScene } from "@/components/effects/GalaxyScene";
+import { MerkabaScene } from "@/components/effects/MerkabaScene";
+import { assetPath } from "@/lib/assetPath";
 // import TechnologiesSection from "@/components/TechnologiesSection";
 
 export default function Home() {
@@ -57,15 +58,15 @@ export default function Home() {
                   >
                     About me
                   </Link> */}
-                  <Link
-                    href="/profile/alexandra_lukinicheva_resume.pdf"
+                  <a
+                    href={assetPath("/profile/alexandra_lukinicheva_resume.pdf")}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-orange-300/40 bg-orange-300/10 px-4 py-2 text-sm text-white transition hover:bg-orange-300/20 focus:outline-none focus:ring-2 focus:ring-orange-300"
                   >
                     <FileText className="h-4 w-4" aria-hidden="true" />
                     View resume
-                  </Link>
+                  </a>
                   <Link
                     href="#contact"
                     className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white transition hover:border-orange-300/50 hover:bg-orange-300/10 focus:outline-none focus:ring-2 focus:ring-orange-300"
