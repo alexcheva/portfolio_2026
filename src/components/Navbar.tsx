@@ -19,6 +19,11 @@ const navItems = [
     href: "/#experience",
   },
   {
+    label: "Insights",
+    href: "/insights/nextjs-react-typescript-performance-accessibility-seo",
+    activePath: "/insights/nextjs-react-typescript-performance-accessibility-seo",
+  },
+  {
     label: "Contact",
     href: "/#contact",
   },
