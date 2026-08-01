@@ -1,11 +1,30 @@
 // import { AboutImageSlots } from "@/components/AboutImageSlots";
 import AboutBackground from "@/components/AboutBackground";
 import AboutConnectSection from "@/components/AboutConnectSection";
+import AboutExperienceGallery from "@/components/AboutExperienceGallery";
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/Header";
 import RgbParallaxImage from "@/components/RgbParallaxImage";
 import { assetPath } from "@/lib/assetPath";
 import { BookOpen, Code2, Layers3, Palette } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Alexandra Lukinicheva | Frontend Engineer & Community Builder",
+  description:
+    "Learn about Alexandra Lukinicheva’s frontend engineering career, Code Berkeley leadership, NASA Space Apps Challenge organizing, and Reactathon community involvement.",
+  keywords: [
+    "Alexandra Lukinicheva",
+    "Code Berkeley",
+    "Berkeley City College",
+    "NASA Space Apps Challenge Berkeley",
+    "Reactathon",
+    "Storybook",
+    "Chromatic",
+    "Developer Experience",
+    "Frontend Engineer",
+  ],
+};
 
 const pathSteps = [
   {
@@ -134,11 +153,14 @@ export default function AboutPage() {
               Today I&apos;m focused on frontend engineering, interactive experiences, AI-powered tools, and data visualization. I&apos;m always looking for opportunities to solve interesting problems, learn new technologies, and build products that people genuinely enjoy using.
             </p>
           </div>
+          <div className="mt-12 max-w-3xl">
+            <TrajectoryMap />
+          </div>
         </article>
 
         <aside
           aria-label="Portrait and education trajectory"
-          className="space-y-6 lg:sticky lg:top-28 lg:self-start"
+          className="space-y-6 lg:self-start"
         >
           {/* <AboutImageSlots /> */}
           <RgbParallaxImage
@@ -146,7 +168,7 @@ export default function AboutPage() {
             alt="Alexandra Lukinicheva - Software Engineer"
             priority
           />
-          <TrajectoryMap />
+          <AboutExperienceGallery />
         </aside>
       </section>
 
