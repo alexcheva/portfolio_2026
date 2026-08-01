@@ -10,6 +10,8 @@ What would you improve today?
 
 import AboutBackground from "@/components/AboutBackground";
 import AboutConnectSection from "@/components/AboutConnectSection";
+import AccessibilityDashboardEvidence from "@/components/AccessibilityDashboardEvidence";
+import ExperienceImageColumn from "@/components/ExperienceImageColumn";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import NextExperienceSection from "@/components/NextExperienceSection";
@@ -17,13 +19,31 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { sections, interviewQuestions } from "@/data/sony";
 
+const experienceImages = [
+  {
+    src: "/experience/sony/alexandra-lukinicheva-playstation-studios-office.jpg",
+    alt: "Alexandra Lukinicheva at PlayStation Studios beside a character display",
+    caption: "At PlayStation HQ in San Mateo, CA, where product quality, accessibility, and player experience meet.",
+    width: 3024,
+    height: 4032,
+  },
+  {
+    src: "/experience/sony/playstation-accessibility-ai-concept.png",
+    alt: "PlayStation-inspired AI accessibility concept featuring Alexandra Lukinicheva",
+    caption: "An exploratory visual for the intersection of PlayStation, AI, and accessible product experiences.",
+    width: 1024,
+    height: 1536,
+  },
+];
+
 export default function SonyExperiencePage() {
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-[#02030a] text-slate-100">
       <AboutBackground />
       <Header />
 
-      <section className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1fr_0.36fr] lg:py-24">
+      <section className="relative z-10 mx-auto w-full max-w-6xl px-6 py-16 lg:py-24">
+        <div className="grid gap-12 lg:grid-cols-[1fr_0.58fr]">
         <article>
           <Link
             href="/#experience"
@@ -69,6 +89,10 @@ export default function SonyExperiencePage() {
             ))}
           </div>
 
+          <div className="mt-16 max-w-3xl">
+            <AccessibilityDashboardEvidence />
+          </div>
+
           <section className="mt-16 max-w-3xl">
             <h2 className="text-3xl font-semibold tracking-tight text-white">
               Interview Q&A
@@ -87,9 +111,11 @@ export default function SonyExperiencePage() {
             </div>
           </section>
         </article>
-        <aside aria-label="Related experience" className="lg:pt-24">
+        <aside aria-label="Sony photos and related experience" className="space-y-6 lg:pt-24">
+          <ExperienceImageColumn company="Sony" images={experienceImages} />
           <NextExperienceSection currentSlug="sony" />
         </aside>
+        </div>
       </section>
       <div className="relative z-10">
         <AboutConnectSection />

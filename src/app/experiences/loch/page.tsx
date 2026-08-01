@@ -26,10 +26,29 @@ Canvas-based implementation that handled continuous streaming data much more eff
 import AboutBackground from "@/components/AboutBackground";
 import AboutConnectSection from "@/components/AboutConnectSection";
 import Footer from "@/components/Footer";
+import ExperienceImageColumn from "@/components/ExperienceImageColumn";
 import Header from "@/components/Header";
 import NextExperienceSection from "@/components/NextExperienceSection";
+import SdrWaterfallEvidence from "@/components/SdrWaterfallEvidence";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+
+const experienceImages = [
+  {
+    src: "/experience/loch/alexandra-lukinicheva-loch-technologies-engineering-team.png",
+    alt: "Alexandra Lukinicheva with the LOCH Technologies engineering team",
+    caption: "The LOCH Technologies team in the office, surrounded by the hardware and displays behind the product.",
+    width: 501,
+    height: 372,
+  },
+  {
+    src: "/experience/loch/loch-technologies-team-dinner.jpeg",
+    alt: "Alexandra Lukinicheva and LOCH Technologies colleagues at a team dinner",
+    caption: "A team dinner with the people behind LOCH's geospatial analytics and visualization platform.",
+    width: 1280,
+    height: 959,
+  },
+];
 
 const sections = [
   {
@@ -88,7 +107,8 @@ export default function LochExperiencePage() {
       <AboutBackground />
       <Header />
 
-      <section className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1fr_0.36fr] lg:py-24">
+      <section className="relative z-10 mx-auto w-full max-w-6xl px-6 py-16 lg:py-24">
+        <div className="grid gap-12 lg:grid-cols-[1fr_0.58fr]">
         <article>
           <Link
             href="/#experience"
@@ -123,6 +143,10 @@ export default function LochExperiencePage() {
             ))}
           </div>
 
+          <div className="mt-16 max-w-3xl">
+            <SdrWaterfallEvidence />
+          </div>
+
           <section className="mt-16 max-w-3xl">
             <h2 className="text-3xl font-semibold tracking-tight text-white">
               Interview Q&A
@@ -141,9 +165,11 @@ export default function LochExperiencePage() {
             </div>
           </section>
         </article>
-        <aside aria-label="Related experience" className="lg:pt-24">
+        <aside aria-label="LOCH Technologies photos and related experience" className="space-y-6 lg:pt-24">
+          <ExperienceImageColumn company="LOCH Technologies" images={experienceImages} />
           <NextExperienceSection currentSlug="loch" />
         </aside>
+        </div>
       </section>
       <div className="relative z-10">
         <AboutConnectSection />

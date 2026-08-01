@@ -11,10 +11,29 @@ A/B testing?
 import AboutBackground from "@/components/AboutBackground";
 import AboutConnectSection from "@/components/AboutConnectSection";
 import Footer from "@/components/Footer";
+import ExperienceImageColumn from "@/components/ExperienceImageColumn";
 import Header from "@/components/Header";
 import NextExperienceSection from "@/components/NextExperienceSection";
+import UpstartPerformanceCaseStudies from "@/components/UpstartPerformanceCaseStudies";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+
+const experienceImages = [
+  {
+    src: "/experience/upstart/alexandra-lukinicheva-upstart-tenth-anniversary.jpg",
+    alt: "Alexandra Lukinicheva celebrating Upstart's tenth anniversary",
+    caption: "Celebrating Upstart's tenth anniversary at the San Mateo office.",
+    width: 3024,
+    height: 4032,
+  },
+  {
+    src: "/experience/upstart/upstart-engineering-team-outing.jpeg",
+    alt: "Alexandra Lukinicheva with Upstart engineering colleagues at a team outing",
+    caption: "An Upstart engineering team outing after building and shipping together.",
+    width: 4032,
+    height: 3024,
+  },
+];
 
 const sections = [
   {
@@ -73,7 +92,8 @@ export default function UpstartExperiencePage() {
       <AboutBackground />
       <Header />
 
-      <section className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1fr_0.36fr] lg:py-24">
+      <section className="relative z-10 mx-auto w-full max-w-6xl px-6 py-16 lg:py-24">
+        <div className="grid gap-12 lg:grid-cols-[1fr_0.58fr]">
         <article>
           <Link
             href="/#experience"
@@ -108,6 +128,8 @@ export default function UpstartExperiencePage() {
             ))}
           </div>
 
+          <UpstartPerformanceCaseStudies />
+
           <section className="mt-16 max-w-3xl">
             <h2 className="text-3xl font-semibold tracking-tight text-white">
               Interview Q&A
@@ -126,9 +148,11 @@ export default function UpstartExperiencePage() {
             </div>
           </section>
         </article>
-        <aside aria-label="Related experience" className="lg:pt-24">
+        <aside aria-label="Upstart photos and related experience" className="space-y-6 lg:pt-24">
+          <ExperienceImageColumn company="Upstart" images={experienceImages} />
           <NextExperienceSection currentSlug="upstart" />
         </aside>
+        </div>
       </section>
       <div className="relative z-10">
         <AboutConnectSection />
