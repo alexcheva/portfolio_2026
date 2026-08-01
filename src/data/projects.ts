@@ -5,53 +5,54 @@ export const projectRows = [
     ctaLabel: "View Spiritual Peach",
     status: "In progress",
     description:
-      "AI-powered wellness platform exploring mindfulness, creativity, and intelligent user experiences.",
-    tags: ["AI", "Wellness", "Next.js", "TypeScript"],
+      "A wellness platform and CMS-style tool for automating consistent, branded social content.",
+    tags: ["Content Automation", "CMS", "Next.js", "TypeScript"],
     overview:
-      "Spiritual Peach is my ongoing passion project: a modern web application designed to explore how AI can support personal growth, creativity, and everyday wellbeing.",
+      "Spiritual Peach is my ongoing passion project: a wellness platform paired with Peach Studio, a CMS-style content creation tool I built to organize ideas and automate consistent branded media for my social channels.",
     sections: [
       {
         title: "Overview",
         body:
-          "Rather than treating artificial intelligence as a novelty, the goal is to create thoughtful experiences that feel genuinely helpful, approachable, and enjoyable to use. The project also serves as a playground for experimenting with modern frontend architecture, interaction design, and emerging AI technologies.",
+          "The public product brings together oracle readings, meditations, affirmations, and reflective content. Behind it, Peach Studio turns reusable content sets into polished social assets so the same brand language can move consistently between the website, Instagram, Pinterest, and short-form video.",
       },
       {
         title: "Goals",
         body:
-          "The vision is to bring together wellness tools, intelligent assistants, journaling, habit tracking, educational content, and interactive experiences within a cohesive and accessible interface.",
+          "The goal was to reduce repetitive content-production work without losing creative control: write and organize content once, preview it inside reusable brand templates, and export channel-ready formats from one coherent workflow.",
       },
       {
         title: "Technical Focus",
         bullets: [
           "React and Next.js application architecture",
           "TypeScript-first development",
-          "AI-assisted user experiences",
+          "CMS-style content sets and reusable structured data",
+          "Branded image, GIF, Pinterest, Story, and Reel generation",
+          "Live previews and browser-based exports",
           "Responsive design and accessibility",
-          "Component libraries and reusable UI systems",
-          "Authentication, user accounts, API integrations, motion, and micro-interactions",
+          "Component libraries and reusable visual templates",
         ],
       },
       {
         title: "Challenges",
         body:
-          "Unlike many portfolio projects that focus on a single feature, Spiritual Peach is intentionally broad. One of the biggest challenges has been balancing experimentation with long-term architecture, allowing the project to evolve without accumulating unnecessary complexity.",
+          "The central challenge was separating content from presentation without making the creative workflow feel rigid. Each format has different proportions and composition needs, so the system had to preserve brand consistency while still producing readable Story, portrait, Pinterest, and video layouts.",
       },
       {
         title: "What I'm Learning",
         body:
-          "This project pushes me to think beyond implementation and consider product design, user psychology, system architecture, and how AI can create experiences that feel genuinely supportive.",
+          "This project has pushed me to think about content operations as a product problem. A useful automation tool does more than generate an image: it creates a repeatable workflow, makes the result previewable, and gives the creator enough control to trust the output.",
       },
     ],
     interviewQuestions: [
       {
         question: "Why did you build Spiritual Peach?",
         answer:
-          "I wanted a long-term project where I could combine frontend engineering, design, AI, and personal interests into a single product. It allows me to continuously experiment with new technologies while building something meaningful.",
+          "I wanted a long-term project where I could combine frontend engineering, visual design, wellness content, and automation. Building both the audience-facing product and its internal content tools let me explore the complete workflow from idea to branded distribution.",
       },
       {
-        question: "Why not build smaller demo projects?",
+        question: "Why build a content tool instead of designing posts manually?",
         answer:
-          "Smaller projects are great for learning individual concepts, but I wanted to experience the challenges of designing a real product that grows over time: making architectural decisions, maintaining consistency, and continually improving the user experience.",
+          "Manual design works for one post, but it becomes repetitive across a campaign and multiple aspect ratios. A CMS-style workflow lets me reuse structured content, keep the brand consistent, preview each format, and spend more time refining the message instead of rebuilding layouts.",
       },
     ],
   },

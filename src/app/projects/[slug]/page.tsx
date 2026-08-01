@@ -1,8 +1,12 @@
 import AboutBackground from "@/components/AboutBackground";
 import AboutConnectSection from "@/components/AboutConnectSection";
+import AccessibilityDashboardEvidence from "@/components/AccessibilityDashboardEvidence";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import NextProjectSection from "@/components/NextProjectSection";
+import PortfolioOptimizationEvidence from "@/components/PortfolioOptimizationEvidence";
+import SdrWaterfallEvidence from "@/components/SdrWaterfallEvidence";
+import SpiritualPeachEvidence from "@/components/SpiritualPeachEvidence";
 import { projectRows } from "@/data/projects";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -87,6 +91,22 @@ export default async function ProjectPage({
                 ) : null}
               </section>
             ))}
+
+            {project.slug === "portfolio-2026" ? (
+              <PortfolioOptimizationEvidence />
+            ) : null}
+
+            {project.slug === "accessibility-ai-proof-of-concept" ? (
+              <AccessibilityDashboardEvidence />
+            ) : null}
+
+            {project.slug === "interactive-data-visualization" ? (
+              <SdrWaterfallEvidence />
+            ) : null}
+
+            {project.slug === "spiritual-peach" ? (
+              <SpiritualPeachEvidence />
+            ) : null}
 
             <section>
               <h2 className="text-3xl font-semibold tracking-tight text-white">
