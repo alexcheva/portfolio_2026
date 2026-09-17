@@ -4,7 +4,7 @@ export const experienceRows = [
     ctaLabel: "View Sony experience",
     slug: "sony",
     role: "Software Development Engineer in Test",
-    period: "2025-Present",
+    period: "2025-2026",
     tags: ["Accessibility", "Automation", "AI prototype"],
     summary:
       "Improved accessibility and automation during a large-scale PlayStation platform migration.",
