@@ -8,7 +8,7 @@ import PortfolioOptimizationEvidence from "@/components/PortfolioOptimizationEvi
 import SdrWaterfallEvidence from "@/components/SdrWaterfallEvidence";
 import SpiritualPeachEvidence from "@/components/SpiritualPeachEvidence";
 import { projectRows } from "@/data/projects";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -146,6 +146,23 @@ export default async function ProjectPage({
                 ))}
               </div>
             </div>
+            {project.slug === "spiritual-peach" ? (
+              <Link
+                href="/insights/self-hypnosis-audio-studio-spiritual-peach"
+                className="group block rounded-2xl border border-orange-300/25 bg-orange-300/[0.06] p-5 transition hover:border-orange-300/50 hover:bg-orange-300/10 focus:outline-none focus:ring-2 focus:ring-orange-300"
+              >
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-orange-200">
+                  Related insight
+                </p>
+                <h2 className="mt-3 text-lg font-semibold leading-7 text-white">
+                  Designing a self-hypnosis audio studio
+                </h2>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-orange-200">
+                  Read the experiment
+                  <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                </span>
+              </Link>
+            ) : null}
             <NextProjectSection currentSlug={project.slug} />
           </aside>
         </div>

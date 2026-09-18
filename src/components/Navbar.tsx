@@ -20,8 +20,8 @@ const navItems = [
   },
   {
     label: "Insights",
-    href: "/insights/nextjs-react-typescript-performance-accessibility-seo",
-    activePath: "/insights/nextjs-react-typescript-performance-accessibility-seo",
+    href: "/insights",
+    activePath: "/insights",
   },
   {
     label: "Contact",
@@ -38,7 +38,9 @@ export default function Navbar() {
       <div className="flex items-center justify-end">
         <ul className="hidden gap-4 text-sm text-slate-300 md:flex">
           {navItems.map((item) => {
-            const isCurrent = item.activePath === pathname;
+            const isCurrent = item.activePath
+              ? pathname === item.activePath || pathname.startsWith(`${item.activePath}/`)
+              : false;
 
             return (
               <li key={item.label}>
@@ -68,7 +70,9 @@ export default function Navbar() {
       {open && (
         <ul className="absolute z-40 right-0 mt-3 flex w-44 flex-col gap-3 rounded-md border border-white/10 bg-slate-950 p-4 text-sm text-slate-300 shadow-lg md:hidden">
           {navItems.map((item) => {
-            const isCurrent = item.activePath === pathname;
+            const isCurrent = item.activePath
+              ? pathname === item.activePath || pathname.startsWith(`${item.activePath}/`)
+              : false;
 
             return (
               <li key={item.label}>
